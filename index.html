@@ -357,6 +357,75 @@ section { padding: 6rem 0; }
 .tool-chip:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
 .tool-icon { font-size: 1rem; flex-shrink: 0; }
 
+
+/* ─── AI / GOOGLE FLOW SHOWCASE ─── */
+#ai-showcase { background: #fff; }
+.ai-intro {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.ai-badge {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.35rem 0.75rem; border-radius: 100px;
+  background: var(--teal-light); color: var(--teal);
+  border: 1px solid #b9e2e3; font-size: 0.72rem; font-weight: 700;
+  font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.ai-showcase-card {
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow);
+}
+.ai-showcase-heading {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap;
+}
+.ai-showcase-title { font-weight: 800; font-size: 1rem; color: var(--ink); }
+.ai-showcase-note { font-size: 0.78rem; color: var(--ink3); line-height: 1.5; }
+.ai-video-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
+}
+.ai-media-card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);
+}
+.ai-media-frame {
+  aspect-ratio: 16 / 9; background: var(--cream2);
+  position: relative; overflow: hidden;
+  z-index: 0;
+}
+.ai-media-frame video, .ai-media-frame img {
+  width: 100%; height: 100%; display: block; object-fit: cover;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.ai-media-body { padding: 0.9rem 1rem; }
+.ai-media-title { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
+.ai-media-meta { margin-top: 0.25rem; font-size: 0.7rem; color: var(--ink3); }
+.ai-process {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+.ai-process-item {
+  padding: 0.8rem 0.9rem; border: 1px solid var(--border);
+  border-radius: 10px; background: #fff;
+}
+.ai-process-num {
+  font-family: var(--mono); font-size: 0.68rem; color: var(--teal);
+  font-weight: 700; margin-bottom: 0.25rem;
+}
+.ai-process-text { font-size: 0.78rem; color: var(--ink2); line-height: 1.5; }
+@media (max-width: 900px) {
+  .ai-video-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .ai-process { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .ai-video-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .ai-process { grid-template-columns: 1fr; }
+  .ai-media-frame { aspect-ratio: 16 / 9; }
+}
+
 /* ─── BLOG ─── */
 #blog { background: var(--cream); }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
@@ -494,6 +563,10 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .hero-stats { flex-wrap: wrap; }
 }
+
+/* Standalone AI TVC viewer */
+
+
 </style>
 </head>
 <body>
@@ -505,6 +578,7 @@ footer {
     <li><a href="#about">Về Tôi</a></li>
     <li><a href="#portfolio">Dự án</a></li>
     <li><a href="#skills">Kỹ năng</a></li>
+    <li><a href="#ai-showcase">AI Showcase</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#contact" class="nav-cta">Liên hệ</a></li>
   </ul>
@@ -516,6 +590,7 @@ footer {
   <a href="#about" onclick="closeMenu()">Giới thiệu</a>
   <a href="#portfolio" onclick="closeMenu()">Dự án</a>
   <a href="#skills" onclick="closeMenu()">Kỹ năng</a>
+  <a href="#ai-showcase" onclick="closeMenu()">AI Showcase</a>
   <a href="#blog" onclick="closeMenu()">Blog</a>
   <a href="#contact" onclick="closeMenu()">Liên hệ</a>
 </div>
@@ -536,8 +611,8 @@ footer {
       insight thành hành động marketing có kết quả đo đếm được.
     </p>
     <div class="hero-actions anim anim-d4">
-      <a href="#portfolio" class="btn btn-teal">Xem dự án →</a>
-      <a href="#contact" class="btn btn-outline-ink">Liên hệ ngay</a>
+      <a href="#portfolio" class="btn btn-outline-ink">Xem dự án →</a>
+      <a href="CV_Dang_Tuan_Kha.pdf" class="btn btn-teal" download>Tải CV (PDF) ↓</a>
     </div>
     <div class="hero-stats anim anim-d4">
       <div class="hero-stat">
@@ -622,7 +697,7 @@ footer {
             </div>
           </div>
         </div>
-        <a href="#" class="cv-download-btn" id="cvDownload">
+        <a href="CV_Dang_Tuan_Kha.pdf" class="cv-download-btn" id="cvDownload" download>
           <div class="cv-download-icon">📄</div>
           <div class="cv-download-text">
             <span class="cv-download-title">Tải CV của tôi</span>
@@ -692,12 +767,12 @@ footer {
             <p class="case-section-title">Vai trò của tôi</p>
             <div class="case-section-body">
               <div class="role-badges">
-                <span class="role-badge">Lên kế hoạch chiến lược</span>
-                <span class="role-badge">SEO Onpage & Offpage</span>
+                <span class="role-badge">Content Marketing</span>
+                <span class="role-badge">Nghiên cứu từ khóa</span>
+                <span class="role-badge">Lên lịch nội dung SEO</span>
+                <span class="role-badge">Viết bài SEO</span>
                 <span class="role-badge">Content Facebook</span>
-                <span class="role-badge">TikTok Content</span>
-                <span class="role-badge">Phân tích đối thủ</span>
-                <span class="role-badge">Báo cáo Analytics</span>
+                <span class="role-badge">Content TikTok</span>
               </div>
             </div>
           </div>
@@ -887,8 +962,121 @@ footer {
   </div>
 </section>
 
+
 <!-- ═══════════════════════════════════════════════
-     5. BLOG
+     5. AI / GOOGLE FLOW SHOWCASE
+════════════════════════════════════════════════ -->
+<section id="ai-showcase">
+  <div class="container">
+    <div class="ai-intro">
+      <div>
+        <p class="section-tag anim">AI Creative Lab</p>
+        <h2 class="section-title anim">AI × Content & TVC</h2>
+      </div>
+      <p class="section-sub anim" style="max-width:430px;">
+        Showcase 4 video TVC 10 giây được tạo bằng Google Flow,
+        thể hiện khả năng kết hợp tư duy Content Marketing với công cụ AI tạo sinh.
+      </p>
+    </div>
+
+    <div class="ai-showcase-card anim">
+      <div class="ai-showcase-heading">
+        <div>
+          <div class="ai-showcase-title">Google Flow — 4 TVC Concepts</div>
+          <div class="ai-showcase-note">
+            Mỗi video có thể trình bày theo concept, visual direction, hook và thông điệp chính.
+          </div>
+        </div>
+        <span class="ai-badge">AI Generated · 10s</span>
+      </div>
+
+      <div class="ai-video-grid">
+        <article class="ai-media-card">
+          <div class="ai-media-frame">
+            <video controls playsinline preload="metadata" poster="thumb-tvc01.png">
+              <source src="video-tvc01.mp4" type="video/mp4">
+              Trình duyệt của bạn không hỗ trợ video.
+            </video>
+          </div>
+          <div class="ai-media-body">
+            <div class="ai-media-title">TVC 01 — Product Hero</div>
+            <div class="ai-media-meta">10s · Google Flow · Key Visual #01</div>
+          </div>
+        </article>
+
+        <article class="ai-media-card">
+          <div class="ai-media-frame">
+            <video controls playsinline preload="metadata" poster="thumb-tvc02.png">
+              <source src="video-tvc02.mp4" type="video/mp4">
+              Trình duyệt của bạn không hỗ trợ video.
+            </video>
+          </div>
+          <div class="ai-media-body">
+            <div class="ai-media-title">TVC 02 — Lifestyle</div>
+            <div class="ai-media-meta">10s · Google Flow · Key Visual #02</div>
+          </div>
+        </article>
+
+        <article class="ai-media-card">
+          <div class="ai-media-frame">
+            <video controls playsinline preload="metadata" poster="thumb-tvc03.png">
+              <source src="video-tvc03.mp4" type="video/mp4">
+              Trình duyệt của bạn không hỗ trợ video.
+            </video>
+          </div>
+          <div class="ai-media-body">
+            <div class="ai-media-title">TVC 03 — Emotional Story</div>
+            <div class="ai-media-meta">10s · Google Flow · Key Visual #03</div>
+          </div>
+        </article>
+
+        <article class="ai-media-card">
+          <div class="ai-media-frame">
+            <video controls playsinline preload="metadata" poster="thumb-tvc04.png">
+              <source src="video-tvc04.mp4" type="video/mp4">
+              Trình duyệt của bạn không hỗ trợ video.
+            </video>
+          </div>
+          <div class="ai-media-body">
+            <div class="ai-media-title">TVC 04 — Premium Detail</div>
+            <div class="ai-media-meta">10s · Google Flow · Key Visual #04</div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="ai-process">
+        <div class="ai-process-item">
+          <div class="ai-process-num">01 · IDEA</div>
+          <div class="ai-process-text">Xây dựng concept, hook và thông điệp theo mục tiêu truyền thông.</div>
+        </div>
+        <div class="ai-process-item">
+          <div class="ai-process-num">02 · PROMPT</div>
+          <div class="ai-process-text">Chuyển ý tưởng Content thành prompt và visual direction cho AI.</div>
+        </div>
+        <div class="ai-process-item">
+          <div class="ai-process-num">03 · GENERATE</div>
+          <div class="ai-process-text">Tạo video/key visual bằng Google Flow và chọn phiên bản phù hợp.</div>
+        </div>
+        <div class="ai-process-item">
+          <div class="ai-process-num">04 · EDIT</div>
+          <div class="ai-process-text">Tinh chỉnh nhịp hình, bố cục, thông điệp và tính nhất quán thương hiệu.</div>
+        </div>
+        <div class="ai-process-item">
+          <div class="ai-process-num">05 · TEST</div>
+          <div class="ai-process-text">Đánh giá khả năng dùng cho social, quảng cáo và TVC ngắn.</div>
+        </div>
+        <div class="ai-process-item">
+          <div class="ai-process-num">06 · LEARN</div>
+          <div class="ai-process-text">Ghi nhận insight để cải thiện prompt, creative direction và content.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     6. BLOG
 ════════════════════════════════════════════════ -->
 <section id="blog">
   <div class="container">
@@ -942,7 +1130,7 @@ footer {
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     6. CONTACT
+     7. CONTACT
 ════════════════════════════════════════════════ -->
 <section id="contact">
   <div class="container">
@@ -1110,5 +1298,7 @@ window.addEventListener('load', () => {
   });
 });
 </script>
+
+
 </body>
 </html>
