@@ -327,6 +327,18 @@ section { padding: 6rem 0; }
   border-radius: 100px; font-size: 0.75rem; font-weight: 600;
 }
 .evidence-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.6rem; }
+
+.project-proof { margin-top: 2rem; }
+
+.project-proof-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+.project-proof-card { min-width: 0; margin: 0; padding: 0.85rem; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+.project-proof-card img { display: block; width: 100%; height: 300px; object-fit: contain; border-radius: 7px; background: #f8f8f6; }
+.project-proof-card figcaption { padding: 0.75rem 0.15rem 0.1rem; font-size: 0.8rem; color: var(--ink2); line-height: 1.6; }
+.project-proof-card figcaption strong { display: block; margin-bottom: 0.2rem; color: var(--ink); }
+.project-proof-links { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; margin-top: 0.8rem; }
+.project-proof-links a { display: inline-flex; padding: 0.55rem 0.8rem; border: 1px solid var(--border); border-radius: 7px; color: var(--teal); text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+.project-proof-links a:hover { background: var(--teal-light); }
+.project-proof-hint { width: 100%; font-size: 0.75rem; color: var(--ink3); }
 .evidence-chip {
   display: inline-flex; align-items: center; gap: 0.3rem;
   padding: 0.3rem 0.75rem; background: var(--cream2);
@@ -344,6 +356,9 @@ section { padding: 6rem 0; }
 .skill-bar-top { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
 .skill-bar-name { font-size: 0.87rem; color: var(--ink2); font-weight: 500; }
 .skill-bar-pct { font-family: var(--mono); font-size: 0.78rem; color: var(--teal); font-weight: 500; }
+.skill-evidence { margin: 0.35rem 0 0.15rem; font-size: 0.78rem; line-height: 1.55; color: var(--ink2); }
+.skill-proof-link { display: inline-block; margin-top: 0.2rem; font-size: 0.73rem; color: var(--teal); text-decoration: none; font-weight: 600; }
+.skill-proof-link:hover { text-decoration: underline; }
 .skill-track { height: 5px; background: var(--cream2); border-radius: 100px; overflow: hidden; }
 .skill-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--teal), var(--teal-mid)); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
 .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
@@ -424,39 +439,6 @@ section { padding: 6rem 0; }
   .ai-video-grid { grid-template-columns: 1fr; gap: 1rem; }
   .ai-process { grid-template-columns: 1fr; }
   .ai-media-frame { aspect-ratio: 16 / 9; }
-}
-
-/* ─── BLOG ─── */
-#blog { background: var(--cream); }
-.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-.blog-card {
-  background: #fff; border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden;
-  transition: all 0.2s; box-shadow: var(--shadow);
-  cursor: pointer;
-}
-.blog-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.blog-card-img {
-  height: 140px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem;
-  position: relative;
-}
-.blog-card-body { padding: 1.5rem; }
-.blog-cat {
-  font-family: var(--mono); font-size: 0.68rem; font-weight: 500;
-  color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-.blog-title { font-weight: 700; font-size: 0.97rem; color: var(--ink); line-height: 1.45; margin-bottom: 0.6rem; }
-.blog-excerpt { font-size: 0.83rem; color: var(--ink3); line-height: 1.65; margin-bottom: 1rem; }
-.blog-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--ink3); }
-.blog-coming {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.5rem 1rem;
-  background: var(--cream2); border-radius: 100px;
-  font-size: 0.75rem; color: var(--ink3); font-weight: 500;
-  margin-top: 0.75rem;
 }
 
 /* ─── CONTACT ─── */
@@ -546,7 +528,6 @@ footer {
   .about-grid, .skills-layout, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
   .case-grid { grid-template-columns: 1fr 1fr; }
   .kpi-grid-case { grid-template-columns: 1fr 1fr; }
-  .blog-grid { grid-template-columns: 1fr 1fr; }
   .case-body, .case-header { padding: 2rem 1.5rem; }
   .container { padding: 0 1.5rem; }
   section { padding: 4.5rem 0; }
@@ -557,9 +538,9 @@ footer {
   .tools-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
+  .project-proof-grid { grid-template-columns: 1fr; }
   .case-grid { grid-template-columns: 1fr; }
   .kpi-grid-case { grid-template-columns: 1fr 1fr; }
-  .blog-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .hero-stats { flex-wrap: wrap; }
 }
@@ -579,7 +560,6 @@ footer {
     <li><a href="#portfolio">Dự án</a></li>
     <li><a href="#skills">Kỹ năng</a></li>
     <li><a href="#ai-showcase">AI Showcase</a></li>
-    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact" class="nav-cta">Liên hệ</a></li>
   </ul>
   <div class="hamburger" onclick="toggleMenu()" id="ham">
@@ -591,7 +571,6 @@ footer {
   <a href="#portfolio" onclick="closeMenu()">Dự án</a>
   <a href="#skills" onclick="closeMenu()">Kỹ năng</a>
   <a href="#ai-showcase" onclick="closeMenu()">AI Showcase</a>
-  <a href="#blog" onclick="closeMenu()">Blog</a>
   <a href="#contact" onclick="closeMenu()">Liên hệ</a>
 </div>
 
@@ -600,7 +579,7 @@ footer {
 ════════════════════════════════════════════════ -->
 <section id="home">
   <div class="hero-content">
-    <p class="hero-eyebrow anim anim-d1">Digital Marketing Specialist</p>
+    <p class="hero-eyebrow anim anim-d1">Junior / Executive Digital Marketing</p>
     <h1 class="hero-headline anim anim-d2">
       Kiến tạo chiến lược,<br>
       <em>đo lường kết quả.</em>
@@ -621,11 +600,11 @@ footer {
       </div>
       <div class="hero-stat">
         <span class="hero-stat-num">237%</span>
-        <span class="hero-stat-label">KPI doanh thu vượt mức</span>
+        <span class="hero-stat-label">Doanh thu nhóm đạt KPI</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-num">3M</span>
-        <span class="hero-stat-label">Thời gian thực chiến</span>
+        <span class="hero-stat-num">15</span>
+        <span class="hero-stat-label">Tổng thời lượng: GLU 12 tháng + dự án Hà Gia 3 tháng</span>
       </div>
     </div>
   </div>
@@ -666,9 +645,9 @@ footer {
           đo lường, phân tích và tối ưu liên tục dựa trên dữ liệu thực tế."
         </div>
         <p>
-          Định hướng của tôi là phát triển thành một <strong>Digital Marketing Specialist</strong>
-          toàn diện, với thế mạnh ở SEO Content và Social Media Marketing.
-          Tôi luôn chủ động học hỏi các xu hướng và công cụ mới để nâng cao năng lực chuyên môn.
+          Hiện tôi đang tìm kiếm vị trí <strong>Junior / Executive</strong> trong lĩnh vực Digital Marketing,
+          tập trung vào SEO Content và Social Media Marketing. Tôi muốn tiếp tục phát triển năng lực
+          qua việc triển khai, theo dõi và tối ưu công việc dựa trên dữ liệu.
         </p>
       </div>
       <div class="about-right anim">
@@ -685,7 +664,7 @@ footer {
             </div>
             <div class="info-row">
               <span class="info-row-label">Khóa</span>
-              <span class="info-row-val">18.3 · Tốt nghiệp 2024</span>
+              <span class="info-row-val">18.3 · 08/2022–08/2025 · Hoàn thành</span>
             </div>
             <div class="info-row">
               <span class="info-row-label">Khu vực</span>
@@ -701,7 +680,7 @@ footer {
           <div class="cv-download-icon">📄</div>
           <div class="cv-download-text">
             <span class="cv-download-title">Tải CV của tôi</span>
-            <span class="cv-download-sub">PDF · Cập nhật tháng 12/2024</span>
+            <span class="cv-download-sub">PDF · Tốt nghiệp 08/2025</span>
           </div>
           <span style="margin-left:auto;font-size:1.1rem;">↓</span>
         </a>
@@ -721,7 +700,7 @@ footer {
         <h2 class="section-title anim">Dự án tiêu biểu</h2>
       </div>
       <p class="section-sub anim" style="max-width:380px;">
-        Dưới đây là dự án thực chiến tôi trực tiếp tham gia xây dựng từ giai đoạn nghiên cứu đến triển khai và đánh giá.
+        Case study dự án nhóm: tôi phụ trách các đầu việc ghi tên Kha trong kế hoạch; kết quả bên dưới là số liệu tổng kết của cả nhóm.
       </p>
     </div>
 
@@ -730,26 +709,26 @@ footer {
       <div class="case-header">
         <div class="case-tag">● Dự án tốt nghiệp · PRO2122</div>
         <h3 class="case-title">Xây dựng & Triển khai Digital Marketing<br>cho thương hiệu Yến Sào Hà Gia</h3>
-        <p class="case-sub">Chiến lược marketing đa kênh toàn diện trong 3 tháng (09–12/2024) cho thương hiệu yến sào mới ra mắt tại TP. HCM.</p>
+        <p class="case-sub">Dự án tốt nghiệp nhóm 4 thành viên, triển khai 4 kênh. Kế hoạch chi tiết chạy từ 09/09–15/11/2024; kỳ đo lường KPI được tổng hợp đến 07/12/2024. Tôi phụ trách các đầu việc ghi tên Kha; riêng nội dung SEO, tôi biên soạn khoảng 30 trong tổng số 131 bài của nhóm. Kết quả KPI dưới đây là kết quả chung của nhóm.</p>
       </div>
       <div class="case-body">
         <!-- KPIs nổi bật -->
         <div class="kpi-grid-case">
           <div class="kpi-box">
-            <div class="kpi-box-num">237%</div>
-            <div class="kpi-box-label">KPI Doanh thu<br>Facebook</div>
+            <div class="kpi-box-num">54K</div>
+            <div class="kpi-box-label">Lượt tiếp cận<br>Facebook · nhóm</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-box-num gold">262%</div>
-            <div class="kpi-box-label">KPI Bài viết<br>SEO Website</div>
+            <div class="kpi-box-num gold">1.200</div>
+            <div class="kpi-box-label">Lượt tương tác<br>Facebook · nhóm</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-box-num green">162.5%</div>
-            <div class="kpi-box-label">KPI Lượt thích<br>TikTok</div>
+            <div class="kpi-box-num green">131</div>
+            <div class="kpi-box-label">Bài SEO<br>Website · nhóm</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-box-num" style="color:#6366f1;">154.5%</div>
-            <div class="kpi-box-label">KPI Hiển thị<br>Website</div>
+            <div class="kpi-box-num" style="color:#6366f1;">3.090</div>
+            <div class="kpi-box-label">Lượt hiển thị<br>Website · nhóm</div>
           </div>
         </div>
 
@@ -758,21 +737,25 @@ footer {
           <div>
             <p class="case-section-title">Bối cảnh & Mục tiêu</p>
             <p class="case-section-body">
-              Hà Gia là thương hiệu yến sào mới ra mắt, cần xây dựng nhận diện thương hiệu
-              và kênh bán hàng trực tuyến từ đầu. Mục tiêu: tăng độ nhận diện và tạo doanh
-              thu trong 3 tháng với ngân sách 1.700.000 VNĐ.
+              Dự án tập trung phát triển hoạt động digital và bán hàng trực tuyến cho thương hiệu Hà Gia.
+              Nhóm triển khai Facebook, Website, TikTok và Shopee. Bảng kế hoạch ghi thời gian 09/09–15/11/2024;
+              tổng ngân sách 1.700.000 VNĐ là ngân sách dự kiến, không phải số chi tiêu đã đối soát.
             </p>
           </div>
           <div>
             <p class="case-section-title">Vai trò của tôi</p>
             <div class="case-section-body">
               <div class="role-badges">
-                <span class="role-badge">Content Marketing</span>
-                <span class="role-badge">Nghiên cứu từ khóa</span>
-                <span class="role-badge">Lên lịch nội dung SEO</span>
-                <span class="role-badge">Viết bài SEO</span>
-                <span class="role-badge">Content Facebook</span>
-                <span class="role-badge">Content TikTok</span>
+                <span class="role-badge">Website · Tối ưu giao diện & SEO On-page</span>
+                <span class="role-badge">Website · Nghiên cứu từ khóa</span>
+                <span class="role-badge">Website · Lên lịch đăng bài SEO</span>
+                <span class="role-badge">Website · Cập nhật banner & sản phẩm</span>
+                <span class="role-badge">Facebook · Lập kế hoạch nội dung Fanpage</span>
+                <span class="role-badge">Facebook · Khuyến mại & Minigame</span>
+                <span class="role-badge">Facebook · Nội dung, banner & quảng cáo</span>
+                <span class="role-badge">Paid media · Google Ads Search/Display</span>
+                <span class="role-badge">Paid media · Shopee Ads từ khóa</span>
+                <span class="role-badge">Đo lường · Reach & tỷ lệ chuyển đổi</span>
               </div>
             </div>
           </div>
@@ -783,9 +766,7 @@ footer {
                 <span class="evidence-chip">📊 Google Analytics</span>
                 <span class="evidence-chip">🔍 Search Console</span>
                 <span class="evidence-chip">📘 Meta Business Suite</span>
-                <span class="evidence-chip">🎵 TikTok Analytics</span>
-                <span class="evidence-chip">🛒 Shopee Seller</span>
-                <span class="evidence-chip">📈 SEMrush Report</span>
+                <span class="evidence-chip">📈 SEMrush</span>
               </div>
             </div>
           </div>
@@ -793,42 +774,68 @@ footer {
 
         <!-- Chi tiết kết quả -->
         <div style="background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:1.5rem 2rem;">
-          <p class="case-section-title" style="margin-bottom:1.2rem;">Kết quả chi tiết theo kênh</p>
+          <p class="case-section-title" style="margin-bottom:1.2rem;">Kết quả nhóm · hai kênh tôi phụ trách</p>
+          <p class="case-section-body" style="margin-bottom:1rem;">Kỳ đo lường: 13/09–07/12/2024. Tỷ lệ dưới đây là mức đạt KPI của nhóm, không phải phần trăm tăng trưởng.</p>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
             <div>
               <div style="font-weight:600;font-size:0.87rem;color:var(--ink);margin-bottom:0.7rem;">📘 Facebook</div>
               <div style="display:flex;flex-direction:column;gap:0.45rem;font-size:0.84rem;color:var(--ink2);">
-                <span>✓ 54.000 lượt tiếp cận (↑108%)</span>
-                <span>✓ 1.200 lượt tương tác (↑120%)</span>
-                <span>✓ 117 bài viết (↑146%)</span>
-                <span>✓ Doanh thu 1.660.000đ (↑237%)</span>
+                <span>54.000 lượt tiếp cận · đạt 108% KPI</span>
+                <span>1.200 lượt tương tác · đạt 120% KPI; giảm 50,3% so với kỳ so sánh trên Meta</span>
+                <span>117 bài đăng · đạt 146,25% KPI</span>
+                <span>2 đơn hàng / mục tiêu 3 đơn</span>
+                <span>Doanh thu 1.660.000đ / mục tiêu 700.000đ · đạt 237% KPI</span>
               </div>
             </div>
             <div>
               <div style="font-weight:600;font-size:0.87rem;color:var(--ink);margin-bottom:0.7rem;">🌐 Website & SEO</div>
               <div style="display:flex;flex-direction:column;gap:0.45rem;font-size:0.84rem;color:var(--ink2);">
-                <span>✓ 2.200 lượt page view (↑110%)</span>
-                <span>✓ 3.090 lượt hiển thị (↑154.5%)</span>
-                <span>✓ 22 organic keywords (↑110%)</span>
-                <span>✓ 131 bài SEO (↑262%)</span>
+                <span>2.200 page view · đạt 110% KPI</span>
+                <span>3.090 lượt hiển thị · đạt 154,5% KPI</span>
+                <span>22 organic keywords · đạt 110% KPI</span>
+                <span>67 lượt nhấp / mục tiêu 70 · đạt 95,71% KPI; CTR 2,2%, vị trí trung bình 24,6</span>
+                <span>131 bài SEO · đạt 262% KPI</span>
+                <span>0 đơn hàng / mục tiêu 2 đơn</span>
+                <span>SEMrush ghi nhận 290 backlink từ 36 referring domains / mục tiêu 300</span>
               </div>
             </div>
-            <div>
-              <div style="font-weight:600;font-size:0.87rem;color:var(--ink);margin-bottom:0.7rem;">🎵 TikTok</div>
-              <div style="display:flex;flex-direction:column;gap:0.45rem;font-size:0.84rem;color:var(--ink2);">
-                <span>✓ 113 lượt theo dõi (↑113%)</span>
-                <span>✓ 325 lượt thích (↑162.5%)</span>
-                <span>✓ 42 video (↑105%)</span>
-              </div>
-            </div>
-            <div>
-              <div style="font-weight:600;font-size:0.87rem;color:var(--ink);margin-bottom:0.7rem;">🛒 Shopee</div>
-              <div style="display:flex;flex-direction:column;gap:0.45rem;font-size:0.84rem;color:var(--ink2);">
-                <span>→ Flash Sale 11/11 được thiết lập</span>
-                <span>→ Shopee Ads đạt 6.300 lượt xem</span>
-                <span>→ Kênh mới — đang trong giai đoạn phát triển</span>
-              </div>
-            </div>
+          </div>
+          <p class="case-section-body" style="margin-top:1.2rem;font-size:0.78rem;color:var(--ink3);">Các chỉ số là kết quả tổng hợp của nhóm dự án; báo cáo phân công cá nhân của tôi tập trung vào Website và Facebook.</p>
+        </div>
+
+        <div class="project-proof">
+          <p class="case-section-title">Ảnh đối chiếu số liệu</p>
+          <p class="case-section-body">Ảnh trích từ báo cáo dự án tốt nghiệp. Bấm vào ảnh để xem bản lớn; các ảnh hội thoại khách hàng không đưa lên vì có thông tin cá nhân.</p>
+          <div class="project-proof-links">
+            <a href="https://yensaothuonghanghagia.com/" target="_blank" rel="noopener noreferrer">Mở website Hà Gia ↗</a>
+            <a href="https://docs.google.com/spreadsheets/d/15V4fNC1vATIdulxkSa60FUQaSZXLjDMxwvvj2I1Fj2A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Kế hoạch tổng quan ↗</a>
+            <span class="project-proof-hint">Bảng Google Sheets có thể yêu cầu quyền xem; cấp quyền xem trước khi gửi hồ sơ.</span>
+          </div>
+          <div class="project-proof-grid">
+            <figure class="project-proof-card">
+              <a href="ha-gia-evidence/report-kpi-summary.jpg" target="_blank" rel="noopener noreferrer"><img src="ha-gia-evidence/report-kpi-summary.jpg" alt="Bảng tổng hợp KPI Facebook và Website của nhóm Hà Gia, kỳ 13 tháng 9 đến 7 tháng 12 năm 2024"></a>
+              <figcaption><strong>Bảng tổng hợp KPI · báo cáo nhóm</strong>54.000 reach, 1.200 tương tác, 117 bài Facebook; 131 bài SEO, 290 backlink và 0 đơn Website.</figcaption>
+            </figure>
+            <figure class="project-proof-card">
+              <a href="ha-gia-evidence/facebook-meta-overview.jpg" target="_blank" rel="noopener noreferrer"><img src="ha-gia-evidence/facebook-meta-overview.jpg" alt="Ảnh Meta Business Suite thể hiện lượt xem, reach, tương tác và click Facebook"></a>
+              <figcaption><strong>Facebook · Meta Business Suite · Hình 391</strong>Ghi nhận 54K reach và 1,2K tương tác trong kỳ 13/09–06/12/2024. Dashboard cũng cho thấy tương tác giảm 50,3% so với kỳ so sánh.</figcaption>
+            </figure>
+            <figure class="project-proof-card">
+              <a href="ha-gia-evidence/website-ga4-pageviews.jpg" target="_blank" rel="noopener noreferrer"><img src="ha-gia-evidence/website-ga4-pageviews.jpg" alt="Ảnh Google Analytics báo cáo 2.2 nghìn lượt xem, 168 người dùng và 439 phiên"></a>
+              <figcaption><strong>Website · Google Analytics · Hình 431</strong>2,2K lượt xem, 168 người dùng hoạt động và 439 phiên trong giai đoạn 13/09–07/12/2024.</figcaption>
+            </figure>
+            <figure class="project-proof-card">
+              <a href="ha-gia-evidence/website-search-console.jpg" target="_blank" rel="noopener noreferrer"><img src="ha-gia-evidence/website-search-console.jpg" alt="Ảnh Google Search Console báo cáo 67 click, 3.09 nghìn lượt hiển thị, CTR 2.2 phần trăm, vị trí trung bình 24.6"></a>
+              <figcaption><strong>Website · Google Search Console · Hình 439</strong>67 click, 3,09K lượt hiển thị, CTR 2,2% và vị trí trung bình 24,6; click thấp hơn mục tiêu 70.</figcaption>
+            </figure>
+            <figure class="project-proof-card">
+              <a href="ha-gia-evidence/website-semrush-keywords.jpg" target="_blank" rel="noopener noreferrer"><img src="ha-gia-evidence/website-semrush-keywords.jpg" alt="Ảnh SEMrush ghi nhận 22 organic keywords, kèm các vị trí 31, 33 và 39 trong mẫu hiển thị"></a>
+              <figcaption><strong>Website · SEMrush · Hình 430</strong>Snapshot ngày 10/11/2024 ghi nhận 22 từ khóa; các ví dụ hiển thị ở vị trí 31, 33 và 39, chưa thuộc top 10.</figcaption>
+            </figure>
+            <figure class="project-proof-card">
+              <a href="ha-gia-evidence/website-semrush-backlinks.jpg" target="_blank" rel="noopener noreferrer"><img src="ha-gia-evidence/website-semrush-backlinks.jpg" alt="Ảnh SEMrush Backlink Analytics ghi nhận 290 backlinks từ 36 referring domains"></a>
+              <figcaption><strong>Website · SEMrush Backlink Analytics · Hình 438</strong>SEMrush ghi nhận 290 backlink và 36 referring domains; KPI là 300 backlink. Không diễn giải số lượng này thành chất lượng backlink.</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -836,7 +843,7 @@ footer {
     <!-- CASE STUDY 2: GLU -->
     <div class="case-study-card anim">
       <div class="case-header" style="background:linear-gradient(135deg,#1a3a5c 0%,#234e73 100%);">
-        <div class="case-tag">● Kinh nghiệm thực tế · Content SEO</div>
+        <div class="case-tag">● Kinh nghiệm thực tế · 02/2025–02/2026 · Content SEO</div>
         <h3 class="case-title">Content SEO & Quản lý Fanpage<br>Công ty May Đồng Phục GLU</h3>
         <p class="case-sub">Triển khai SEO Content và Social Media Marketing cho thương hiệu đồng phục tại TP. HCM — đưa 10 từ khóa ngành lên trang 6–7 Google.</p>
       </div>
@@ -903,7 +910,7 @@ footer {
     <p class="section-tag anim">Skills & Tools</p>
     <h2 class="section-title anim">Kỹ năng & Chuyên môn</h2>
     <p class="section-sub anim" style="margin-bottom:3rem;">
-      Các năng lực cốt lõi và công cụ tôi sử dụng thành thạo trong thực tế.
+      Mức độ được ghi theo đầu việc đã thực hiện và minh chứng trong case Hà Gia; KPI dự án được phân biệt rõ với kết quả cá nhân.
     </p>
 
     <div class="skills-layout">
@@ -912,28 +919,34 @@ footer {
           <div class="skill-group-title">Chuyên môn cốt lõi</div>
           <div class="skill-bars">
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span class="skill-bar-name">SEO Onpage & Offpage</span><span class="skill-bar-pct">85%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="width:0%" data-w="85%"></div></div>
+              <div class="skill-bar-top"><span class="skill-bar-name">SEO On-page</span><span class="skill-bar-pct">Đã triển khai</span></div>
+              <p class="skill-evidence">Nghiên cứu từ khóa, tối ưu On-page, lên lịch SEO và cập nhật nội dung website theo kế hoạch.</p>
+              <a class="skill-proof-link" href="#portfolio">Minh chứng: Case Hà Gia ↗</a>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span class="skill-bar-name">Content Marketing</span><span class="skill-bar-pct">88%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="width:0%" data-w="88%"></div></div>
+              <div class="skill-bar-top"><span class="skill-bar-name">SEO Content</span><span class="skill-bar-pct">Đã triển khai</span></div>
+              <p class="skill-evidence">Trực tiếp biên soạn khoảng 30 trong tổng số 131 bài SEO của nhóm và lập lịch đăng bài.</p>
+              <a class="skill-proof-link" href="#portfolio">Minh chứng: Case Hà Gia ↗</a>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span class="skill-bar-name">Facebook Ads</span><span class="skill-bar-pct">80%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="width:0%" data-w="80%"></div></div>
+              <div class="skill-bar-top"><span class="skill-bar-name">Social Media Marketing</span><span class="skill-bar-pct">Đã triển khai</span></div>
+              <p class="skill-evidence">Lập kế hoạch Fanpage, nội dung khuyến mại, minigame, banner và bài đăng; KPI Facebook được ghi là kết quả nhóm.</p>
+              <a class="skill-proof-link" href="#portfolio">Minh chứng: Case Hà Gia ↗</a>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span class="skill-bar-name">Social Media Marketing</span><span class="skill-bar-pct">85%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="width:0%" data-w="85%"></div></div>
+              <div class="skill-bar-top"><span class="skill-bar-name">Paid Media · Facebook / Google / Shopee</span><span class="skill-bar-pct">Đã triển khai</span></div>
+              <p class="skill-evidence">Bảng phân công ghi chạy Google Ads Search/Display, quảng cáo chiến dịch Fanpage và Shopee Ads; chưa có KPI quảng cáo tách riêng.</p>
+              <a class="skill-proof-link" href="#portfolio">Minh chứng: kế hoạch & Case Hà Gia ↗</a>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span class="skill-bar-name">Data Analysis & Reporting</span><span class="skill-bar-pct">78%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="width:0%" data-w="78%"></div></div>
+              <div class="skill-bar-top"><span class="skill-bar-name">Data Analysis & Reporting</span><span class="skill-bar-pct">Cơ bản</span></div>
+              <p class="skill-evidence">Đọc số liệu GA4, Search Console và Meta Business Suite; phân biệt KPI nhóm với kết quả cá nhân.</p>
+              <a class="skill-proof-link" href="#portfolio">Minh chứng: ảnh dashboard ↗</a>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span class="skill-bar-name">Market Research</span><span class="skill-bar-pct">82%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="width:0%" data-w="82%"></div></div>
+              <div class="skill-bar-top"><span class="skill-bar-name">Market Research</span><span class="skill-bar-pct">Cơ bản</span></div>
+              <p class="skill-evidence">Tham gia phần nghiên cứu thị trường và đối thủ trong dự án tốt nghiệp nhóm.</p>
+              <a class="skill-proof-link" href="#portfolio">Minh chứng: Case Hà Gia ↗</a>
             </div>
           </div>
         </div>
@@ -941,7 +954,7 @@ footer {
 
       <div class="anim">
         <div class="skill-group">
-          <div class="skill-group-title">Công cụ chuyên dụng</div>
+          <div class="skill-group-title">Công cụ đã sử dụng</div>
           <div class="tools-grid">
             <div class="tool-chip"><span class="tool-icon">📊</span> Google Analytics</div>
             <div class="tool-chip"><span class="tool-icon">🔍</span> Search Console</div>
@@ -1076,61 +1089,7 @@ footer {
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     6. BLOG
-════════════════════════════════════════════════ -->
-<section id="blog">
-  <div class="container">
-    <p class="section-tag anim">Blog & Insights</p>
-    <h2 class="section-title anim">Bài viết cá nhân</h2>
-    <p class="section-sub anim">
-      Nơi tôi chia sẻ kiến thức về Digital Marketing, SEO và những insight từ quá trình thực chiến.
-    </p>
-
-    <div class="blog-grid">
-      <div class="blog-card anim">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#e6f4f4,#c8eaeb);">📊</div>
-        <div class="blog-card-body">
-          <div class="blog-cat">SEO Strategy</div>
-          <div class="blog-title">Tại sao SEO Onpage quan trọng hơn bạn nghĩ với thương hiệu mới?</div>
-          <div class="blog-excerpt">Từ dự án Hà Gia, tôi rút ra bài học: nội dung không đủ — kỹ thuật mới là nền tảng cho SEO bền vững.</div>
-          <div class="blog-meta">
-            <span>5 phút đọc</span>
-            <div class="blog-coming">✍️ Sắp ra mắt</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="blog-card anim">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#fef8e7,#fde68a);">🎵</div>
-        <div class="blog-card-body">
-          <div class="blog-cat">Social Media</div>
-          <div class="blog-title">TikTok vs Facebook: Kênh nào phù hợp cho thương hiệu FMCG tại Việt Nam?</div>
-          <div class="blog-excerpt">So sánh chi phí, độ tiếp cận và tỷ lệ chuyển đổi giữa hai kênh qua dữ liệu thực tế từ dự án.</div>
-          <div class="blog-meta">
-            <span>7 phút đọc</span>
-            <div class="blog-coming">✍️ Sắp ra mắt</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="blog-card anim">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0);">📈</div>
-        <div class="blog-card-body">
-          <div class="blog-cat">Data & Analytics</div>
-          <div class="blog-title">Cách đọc báo cáo Google Analytics để tối ưu chiến dịch nhanh nhất</div>
-          <div class="blog-excerpt">Hướng dẫn thực tế: những chỉ số nào thực sự quan trọng và cách phản ứng đúng với từng tín hiệu.</div>
-          <div class="blog-meta">
-            <span>6 phút đọc</span>
-            <div class="blog-coming">✍️ Sắp ra mắt</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     7. CONTACT
+     6. CONTACT
 ════════════════════════════════════════════════ -->
 <section id="contact">
   <div class="container">
@@ -1218,7 +1177,7 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">Tuấn Kha<span>.</span>Portfolio</div>
-    <div class="footer-text">© 2024 · Đặng Tuấn Kha · Digital Marketing Portfolio · FPT Polytechnic K18.3</div>
+    <div class="footer-text">© 2026 · Đặng Tuấn Kha · Digital Marketing Portfolio · FPT Polytechnic K18.3</div>
     <div style="font-size:0.8rem;">Built with ♡ · TP. Hồ Chí Minh</div>
   </div>
 </footer>
